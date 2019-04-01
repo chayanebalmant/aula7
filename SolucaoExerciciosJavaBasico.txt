@@ -1,0 +1,444 @@
+package br.com.db1.db1start.aula2;
+
+public class ExercicioDeInteiro {
+	
+	//1 - que some dois números
+	public Integer somaDeDoisNum(Integer num1, Integer num2) {
+		return num1+num2;		
+	}	
+	
+	//2 - FUM que subtraia dois números
+	
+	public Integer SubtraiaDoisNum (Integer num1, Integer num2){	
+		return num1-num2;			
+	}
+	
+	//3 - FUM que multiplique dois números
+	
+	public Integer MultiplicaDoisNum (Integer num1, Integer num2){
+		return num1*num2;			
+	}
+	
+	//4 - FUM que divida dois números
+	
+	public Integer DivideDoisNum (Integer num1, Integer num2){
+		return num1/num2;			
+	}
+	
+	//5 - FUM que diga se o número é par
+	
+	public Integer DizSeEPar (Integer num){
+		if(num%2==0)
+			return 1;
+		
+		return 0;
+	}
+	//6 - FUM que receba dois números e diga qual é o maior	
+	public Integer MaiorDeDois (Integer num1, Integer num2){
+		if(num1>num2)
+			return num1;
+		
+		return num2;
+	}
+	//7 - FUM que a partir de um valor inicial, 
+	//mostre a quantidade de n ímpares até 100.
+	public Integer ImparesAte100 (Integer num){
+		int cont=0;
+		Integer i=0;
+		for (i=num; i < 101; i++){
+			if(num%2!=0)
+				cont = cont+1;		
+		}
+		return cont;
+	}
+}
+//TESTE
+package br.com.db1.db1start.aula2;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+
+public class ExercicioDeInteiroTeste {
+	
+	@Test
+	
+	public void deveRetornarSomaDe2Num (){
+		ExercicioDeInteiro soma = new ExercicioDeInteiro();
+		Integer res = soma.somaDeDoisNum(2, 3);
+		Assert.assertEquals(5, res, 0);
+	}	
+	
+	@Test
+	
+	public void deveRetornarSubtracaoDe2Num() {
+		ExercicioDeInteiro subt = new ExercicioDeInteiro();
+		Integer res = subt.SubtraiaDoisNum(10,7);
+		Assert.assertEquals(3, res, 0);
+	}
+	
+	@Test
+	
+	public void deveRetornarMultiplicacaoDe2Num(){
+		ExercicioDeInteiro mult = new ExercicioDeInteiro();
+		Integer result = mult.MultiplicaDoisNum(5,2);
+		Assert.assertEquals(10, result, 0);
+	}
+	
+	@Test
+	
+	public void deveRetornarDivisaoDe2Num(){
+		ExercicioDeInteiro div = new ExercicioDeInteiro();
+		Integer result = div.DivideDoisNum(5,2);
+		Assert.assertEquals(2, result, 0);
+	}
+	
+	@Test
+	
+	public void deveRetornarSeEPar(){
+		ExercicioDeInteiro par = new ExercicioDeInteiro();
+		Integer result = par.DizSeEPar(5);
+		Assert.assertEquals(0, result, 0);
+	}
+	
+	@Test
+	
+	public void deveRetornarMaiorDe2Num(){
+		ExercicioDeInteiro maior = new ExercicioDeInteiro();
+		Integer result = maior.MaiorDeDois(5,2);
+		Assert.assertEquals(5, result, 0);
+	}
+	
+	public void deveRetornarImparesAte100(){
+		ExercicioDeInteiro impares = new ExercicioDeInteiro();
+		Integer result = impares.ImparesAte100(97);
+		Assert.assertEquals(2, result, 0);
+	}
+}
+
+
+
+package br.com.db1.db1start.aula2;
+//import java.io.IOException;
+//import org.apache.commons.lang.StringUtils;
+
+public class ExerciciosDeString {
+	//1 - FUM que receba um texto e devolva ele em LETRAS MAIUSCULAS
+	
+	public String maiusculas(String texto){
+		String maiusc = texto.toUpperCase();
+		return maiusc;
+	}
+	
+	//2 - FUM que receba um texto e devolva ele em LETRAS MINUSCULAS
+	
+	public String minusculas(String texto){
+		String minusc = texto.toLowerCase();
+		return minusc;
+	}
+	
+	
+	//3 - FUM que receba DB1START e retorne a quantidade de letras que 
+	//existe nesta palavra
+	
+	public int tamanhoTexto(String texto){
+		int tamanho = texto.length();
+		return tamanho;
+	}
+	
+	//4 - FUM que receba DB1START (tendo um espaço no inicio e no fim da palavra)
+	//e retorne a quantidade de letras que existe
+	
+	public int tamanhoTextoComEspaco(String texto){
+		int tamanho = texto.trim().length();
+		return tamanho;
+	}
+	//5 - FUM que retorne o item 4 com a mesma quantidade de letras do item 3.
+	
+	public String textoSemEspaco(String texto){
+		String novotexto = texto.trim();
+		return novotexto;
+	}
+	
+	//6 - FUM que receba o seu nome completo e exiba somente as 4
+	//primeiras letras do seu nome
+	
+	public String primeiras4Letras(String nome){	
+		String novoNome = nome.substring(0,4);
+		return novoNome;
+	}
+	//7 - FUM que receba o seu nome completo e exiba a partir da terceira letras do seu nome
+	public String terceiraLetraDoNomeEmDiante(String nome){	
+		String novoNome = nome.substring(2,24);
+		return novoNome;
+	}
+	
+	//8 - FUM que receba o seu nome completo e exiba somente as 4 ultimas letras do seu nome
+	public String ultimas4LetraDoNome(String nome){		
+		String novoNome = nome.substring(20,24);
+		return novoNome;
+	}
+	
+	//9 - FUM que receba o seu nome completo e substitua o seu  primeiro nome por ALUNO/ALUNA
+	public String substituiPrimeiroNome(String nome){
+		String novoNome = nome.replaceFirst("Chayane", "ALUNA");
+		return novoNome;
+	}
+
+	//10 - FUM que receba o seguinte texto "banana, maçã, melancia" e 
+	//exiba o texto separadamente.
+	
+	//11 - FUM que receba um texto e exiba quantas vogais tem no texto
+	public int vogais(String texto) {
+		int i=0,cont=0;
+		String NovoTexto = texto.toLowerCase();
+		//int tamanho = texto.length();
+		
+		for (i=0; i < texto.length(); i++){
+			char c = NovoTexto.charAt(i);
+            if (c == 'a' || c == 'e' || c == 'i' || c == 'o' || c == 'u')
+                cont++;		
+		}
+		return cont;
+		}
+
+
+
+	//12 - FUM que receba um texto e devolva ele invertido
+	public String inverteTexto(String texto){
+		StringBuffer sb = new StringBuffer(texto);
+		String novotexto = sb.reverse().toString();
+		return novotexto;
+	}
+	
+}
+
+package br.com.db1.db1start.aula2;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class ExerciciosDeStringTeste {
+
+	@Test
+
+	public void deveRetornarMaiusculas() {
+		ExerciciosDeString maius = new ExerciciosDeString();
+		String resultado = maius.maiusculas("TexTo");
+		Assert.assertEquals("TEXTO", resultado);
+	}
+
+	@Test
+
+	public void deveRetornarMinusculas() {
+		ExerciciosDeString minus = new ExerciciosDeString();
+		String resultado = minus.minusculas("TexTo");
+		Assert.assertEquals("texto", resultado);
+	}
+
+	@Test
+
+	public void deveRetornarTamanhoString() {
+		ExerciciosDeString size = new ExerciciosDeString();
+		int resultado = size.tamanhoTexto("DB1START");
+		Assert.assertEquals(8, resultado);
+	}
+
+	@Test
+
+	public void deveRetornarTamanhoStringComEspaco() {
+		ExerciciosDeString size = new ExerciciosDeString();
+		int resultado = size.tamanhoTextoComEspaco(" DB1START ");
+		Assert.assertEquals(8, resultado);
+	}
+
+	@Test
+
+	public void deveRetornarStringSemEspaco() {
+		ExerciciosDeString semEspaco = new ExerciciosDeString();
+		String resultado = semEspaco.textoSemEspaco(" DB1START ");
+		Assert.assertEquals("DB1START", resultado);
+	}
+
+	@Test
+
+	public void deveRetornar4PrimeirasLetrasDoNome() {
+		ExerciciosDeString nome = new ExerciciosDeString();
+		String resultado = nome.primeiras4Letras("Chayane");
+		Assert.assertEquals("Chay", resultado);
+	}
+
+	@Test
+
+	public void deveRetornarTerceiraLetraDoNomeEmDiante() {
+		ExerciciosDeString nome = new ExerciciosDeString();
+		String resultado = nome.terceiraLetraDoNomeEmDiante("Chayane Steffany Balmant");
+		Assert.assertEquals("ayane Steffany Balmant", resultado);
+	}
+
+	@Test
+
+	public void deveRetornarultimas4LetraDoNome() {
+		ExerciciosDeString nome = new ExerciciosDeString();
+		String resultado = nome.ultimas4LetraDoNome("Chayane Steffany Balmant");
+		Assert.assertEquals("mant", resultado);
+	}
+	
+	@Test
+	
+	public void deveSubstituirPrimeiroNome() {
+		ExerciciosDeString nome = new ExerciciosDeString();
+		String resultado = nome.substituiPrimeiroNome("Chayane Steffany Balmant");
+		Assert.assertEquals("ALUNA Steffany Balmant", resultado);
+	}
+	
+	@Test
+	
+	public void deveRetornarQuantasVogais() {
+		ExerciciosDeString contador = new ExerciciosDeString();
+		int resultado = contador.vogais("Chayane");
+		Assert.assertEquals(3, resultado);
+	}
+	
+	@Test
+	
+	public void deveRetornarStringInvertida() {
+		ExerciciosDeString inversor = new ExerciciosDeString();
+		String resultado = inversor.inverteTexto("Chayane Steffany Balmant");
+		Assert.assertEquals("tnamlaB ynaffetS enayahC", resultado);
+	}
+}
+
+
+package br.com.db1.db1start.aula2;
+
+public class ExerciciosDeDouble {
+	//1 - FUM que exiba qual é o menor valor entre dois doubles
+	public Double menorValor(Double num1, Double num2) {
+		if (num1 < num2)
+			return num1;
+		
+		return num2;
+	}
+	
+//	2 - FUM que exiba qual é o menor valor entre três doubles
+	public Double menorValorDe3( Double num1, Double num2, Double num3) {
+		//Double menorValor = (num1 , num2);
+		//return menorValor(menorValor, num3);
+		if (num1 < num2 && num1 < num3)
+			return num1;
+		if (num2 < num1 && num2 < num3)
+			return num2;
+		
+		return num3;
+	}
+//	3 - FUM que exiba a média de três números
+	public Double mediaDe3(Double num1, Double num2, Double num3) {
+		Double media = (num1 + num2 + num3 ) / 3 ;
+		return media;
+		
+	}
+//	4 - FUM que calcule a área de um triangulo
+	public Double areaTriangulo(Double base, Double altura) {
+		Double area = (base*altura)/2;
+		return area;
+	}
+}	
+
+
+package br.com.db1.db1start.aula2;
+
+import org.junit.Assert;
+import org.junit.Test;
+
+public class ExerciciosDeDoubleTeste {
+//1 - FUM que exiba qual é o menor valor entre dois doubles
+	
+	@Test
+	
+	public void deveRetornarMenorValorDe2(){ 
+		ExerciciosDeDouble comparador  = new ExerciciosDeDouble();
+		Double resultado = comparador .menorValor(1.0, 2.0);
+		Assert.assertEquals(1.0, resultado, 0);
+	}
+	
+//	2 - FUM que exiba qual é o menor valor entre três doubles		
+	
+	@Test
+	
+	public void deveRetornarMenorValorDe3(){ 
+		ExerciciosDeDouble comparador  = new ExerciciosDeDouble();
+		Double resultado = comparador .menorValorDe3(1.0, 2.0, 3.0);
+		Assert.assertEquals(1.0, resultado, 0);
+	}
+
+	
+//	3 - FUM que exiba a média de três números
+	
+	@Test
+	
+	public void deveRetornarMediaDe3(){ 
+		ExerciciosDeDouble media  = new ExerciciosDeDouble();
+		Double resultado = media.mediaDe3(1.0, 2.0, 3.0);
+		Assert.assertEquals(2.00, resultado, 2);
+	}
+//	4 - FUM que calcule a área de um triangulo
+	
+	@Test
+	
+	public void deveRetornarAreaTriangulo(){ 
+		ExerciciosDeDouble area  = new ExerciciosDeDouble();
+		Double resultado = area.areaTriangulo(1.0, 2.0);
+		Assert.assertEquals(1.00, resultado, 2);
+	}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+LISTA
+exercício de Inteiro (Integer)
+
+1 - FUM que some dois números
+2 - FUM que subtraia dois números
+3 - FUM que multiplique dois números 
+4 - FUM que divida dois números
+5 - FUM que diga se o número é par
+6 - FUM que receba dois números e diga qual é o maior	
+7 - FUM que a partir de um valor inicial, mostre a quantidade de n ímpares até 100. 
+
+Exercícios de Texto (String)
+1 - FUM que receba um texto e devolva ele em LETRAS MAIUSCULAS
+2 - FUM que receba um texto e devolva ele em LETRAS MINUSCULAS
+3 - FUM que receba DB1START e retorne a quantidade de letras que existe nesta palavra
+4 - FUM que receba DB1START (tendo um espaço no inicio e no fim da palavra) e retorne a quantidade de letras que existe 
+5 - FUM que retorne o item 4 com a mesma quantidade de letras do item 3.
+6 - FUM que receba o seu nome completo e exiba somente as 4 primeiras letras do seu nome
+7 - FUM que receba o seu nome completo e exiba a partir da terceira letra do seu nome
+8 - FUM que receba o seu nome completo e exiba somente as 4 ultimas letras do seu nome
+9 - FUM que receba o seu nome completo e substitua o seu  primeiro nome por ALUNO/ALUNA
+10 - FUM que receba o seguinte texto 	"banana, maçã, melancia" e exiba o texto separadamente.
+11 - FUM que receba um texto e exiba quantas vogais tem no texto
+12 - FUM que receba um texto e devolva ele invertido
+
+Exercício de Matematica (Double)
+1 - FUM que exiba qual é o menor valor entre dois doubles
+2 - FUM que exiba qual é o menor valor entre três doubles	
+3 - FUM que exiba a média de três números
+4 - FUM que calcule a área de um triangulo
+
+
+
